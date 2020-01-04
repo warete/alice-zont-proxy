@@ -61,4 +61,20 @@ class ZontClient
 
 		return $result;
 	}
+
+	/**
+	 * @param $value
+	 * @return mixed|null
+	 */
+	public function setGuardState($value)
+	{
+		return $this->request('POST', 'set_io_port', [
+			'json' => [
+				'device_id' => $this->deviceId,
+				'portname' => 'guard-state',
+				'type' => 'string',
+				'value' => $value ? 'enabled' : 'disabled'
+			]
+		]);
+	}
 }
