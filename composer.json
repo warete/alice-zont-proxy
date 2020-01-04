@@ -3,7 +3,8 @@
     "description": "Небольшая библиотека для проксирования запросов из Алисы в API Zont",
     "type": "library",
     "require": {
-        "guzzlehttp/guzzle": "^6.5"
+        "guzzlehttp/guzzle": "^6.5",
+        "vlucas/phpdotenv": "^4.1"
     },
     "license": "Apache License 2.0",
     "authors": [
