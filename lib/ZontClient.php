@@ -77,4 +77,22 @@ class ZontClient
 			]
 		]);
 	}
+
+	/**
+	 * @param $value
+	 * @return mixed|null
+	 */
+	public function setEngineState($value)
+	{
+		return $this->request('POST', 'set_io_port', [
+			'json' => [
+				'device_id' => $this->deviceId,
+				'portname' => 'auto-ignition',
+				'type' => 'auto-ignition',
+				'value' => (object) [
+					'state' => $value ? 'enabled' : 'disabled'
+				]
+			]
+		]);
+	}
 }
