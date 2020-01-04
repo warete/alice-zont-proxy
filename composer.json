@@ -12,5 +12,10 @@
             "name": "Egor Borisovsky",
             "email": "mr-warete@mail.ru"
         }
-    ]
+    ],
+    "autoload": {
+        "psr-4": {
+            "AliceZontProxy\\": "lib"
+        }
+    }
 }
