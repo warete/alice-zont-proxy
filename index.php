@@ -7,6 +7,11 @@ use Dotenv\Dotenv,
 $dotenv = Dotenv::createImmutable(__DIR__);
 $dotenv->load();
 
+if (!isset($_REQUEST['secret']) && $_REQUEST['secret'] != getenv('SECRET'))
+{
+    die();
+}
+
 $zontClient = new ZontClient(
 	getenv('ZONT_API_URL'),
 	getenv('ZONT_LOGIN'),
