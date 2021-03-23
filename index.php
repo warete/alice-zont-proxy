@@ -4,8 +4,15 @@ require __DIR__ . '/vendor/autoload.php';
 use Dotenv\Dotenv,
 	AliceZontProxy\ZontClient;
 
-$dotenv = Dotenv::createImmutable(__DIR__);
-$dotenv->load();
+try
+{
+    $dotenv = Dotenv::createImmutable(__DIR__);
+    $dotenv->load();
+}
+catch(Dotenv\Exception\InvalidPathException $e)
+{
+
+}
 
 if (!isset($_REQUEST['secret']) && $_REQUEST['secret'] != getenv('SECRET'))
 {
