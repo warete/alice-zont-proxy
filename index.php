@@ -19,7 +19,8 @@ catch(Throwble $e)
 
 if (!isset($_REQUEST['secret']) && $_REQUEST['secret'] != getenv('SECRET'))
 {
-    die();
+	header('HTTP/1.0 403 Forbidden');
+	die('Forbidden');
 }
 
 $zontClient = new ZontClient(
@@ -64,4 +65,8 @@ if (count($payload) && isset($payload['value']))
 			);
 			fclose($tempFile);
     }
+}
+else
+{
+	echo json_encode(['healthcheck' => 'ok']);
 }
