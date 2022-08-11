@@ -32,7 +32,7 @@ $zontClient = new ZontClient(
 	getenv('DEBUG') == "true" ? true : false
 );
 
-$payload = json_decode(file_get_contents("php://input"), true);
+$payload = json_decode(file_get_contents("php://input"), true) ?: [];
 
 if (count($payload) && isset($payload['value']))
 {
