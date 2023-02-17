@@ -1,0 +1,11 @@
+version: "2.1"
+
+services:
+  backend:
+    build: ./
+    restart: always
+    ports:
+      - 8080:8080
+    command: "php -S 0.0.0.0:8080 -d /usr/src/myapp /usr/src/myapp/index.php"
+    volumes:
+      - ./:/usr/src/myapp
